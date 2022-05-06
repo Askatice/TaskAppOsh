@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.fragment.profile.ProfileFragment">
 
     <TextView
-        android:layout_below="@id/img_profile"
         android:id="@+id/text_notifications"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_below="@id/img_profile"
+        android:layout_marginStart="@dimen/eight"
+        android:layout_marginTop="@dimen/eight"
+        android:layout_marginEnd="@dimen/eight"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="@dimen/twenty_sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:id="@+id/img_profile"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_margin="30dp"
+        android:layout_margin="32dp"
         android:background="#e5e5e5e5"
         android:scaleType="centerCrop" />
 
@@ -36,7 +36,6 @@
         android:layout_alignEnd="@+id/img_profile"
         android:layout_alignBottom="@id/img_profile"
         android:foreground="@drawable/ic_baseline_add_24"
-        android:gravity="center"
         android:textStyle="italic"
         android:visibility="visible" />
 

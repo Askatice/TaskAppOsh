@@ -7,28 +7,30 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.ssa.taskapp.ui.home.HomeFragment"
+        android:name="com.ssa.taskapp.ui.fragment.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.ssa.taskapp.ui.dashboard.DashboardFragment"
+        android:name="com.ssa.taskapp.ui.fragment.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.ssa.taskapp.ui.notifications.NotificationsFragment"
+        android:name="com.ssa.taskapp.ui.fragment.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.ssa.taskapp.ui.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:name="com.ssa.taskapp.ui.fragment.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.ssa.taskapp.ui.detail.DetailFragment"
+        android:name="com.ssa.taskapp.ui.fragment.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
 </navigation>

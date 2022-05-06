@@ -1,4 +1,4 @@
-package com.ssa.taskapp.ui.notifications;
+package com.ssa.taskapp.ui.fragment.notifications;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

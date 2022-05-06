@@ -1,4 +1,4 @@
-package com.ssa.taskapp.ui.detail;
+package com.ssa.taskapp.ui.fragment.detail;
 
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
@@ -32,9 +32,8 @@ public class DetailFragment extends Fragment {
     String date = new SimpleDateFormat("dd.MM.yyyy   HH:mm:ss", Locale.getDefault()).format(new Date());
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(inflater);
         return binding.getRoot();
     }
@@ -50,6 +49,7 @@ public class DetailFragment extends Fragment {
         NavHostFragment navHostController = (NavHostFragment)
                 requireActivity().getSupportFragmentManager()
                         .findFragmentById(R.id.nav_host_fragment_activity_main);
+        assert navHostController != null;
         controller = navHostController.getNavController();
     }
 

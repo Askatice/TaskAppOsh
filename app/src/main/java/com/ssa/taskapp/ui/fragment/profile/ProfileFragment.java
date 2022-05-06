@@ -1,4 +1,4 @@
-package com.ssa.taskapp.ui.profile;
+package com.ssa.taskapp.ui.fragment.profile;
 
 
 import static android.app.Activity.RESULT_OK;
@@ -9,25 +9,16 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.ActivityResultLauncherKt;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
-import com.bumptech.glide.Glide;
 import com.ssa.taskapp.databinding.FragmentProfileBinding;
 
 import java.io.FileNotFoundException;
@@ -41,38 +32,30 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ProfileViewModel profileViewModel =
-                new ViewModelProvider(this).get(ProfileViewModel.class);
-
         binding = FragmentProfileBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textNotifications;
-        profileViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        return binding.getRoot();
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         initListener();
         getImages();
     }
 
     private void initListener() {
-       binding.addImage.setOnClickListener(view -> {
-           Intent intent = new Intent(Intent.ACTION_PICK);
-           intent.setType("image/*");
-           activityResultLauncher.launch(intent);
+        binding.addImage.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            activityResultLauncher.launch(intent);
             binding.addImage.setVisibility(View.INVISIBLE);
-       });
+        });
     }
 
     public void getImages() {
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK) {
                 try {
+                    assert result.getData() != null;
                     final Uri imageUri = result.getData().getData();
                     final InputStream imageStream = requireActivity().getContentResolver().openInputStream(imageUri);
                     final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
