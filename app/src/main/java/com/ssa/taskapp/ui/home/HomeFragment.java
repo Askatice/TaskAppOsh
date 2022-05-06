@@ -60,7 +60,7 @@ private  List<TaskModel> list = new ArrayList<>();
     }
 
     private void initResultListener() {
-    getActivity().getSupportFragmentManager().setFragmentResultListener(
+    getParentFragmentManager().setFragmentResultListener(
             DetailFragment.RESULT_HOME_KEY,
             this,
              ((requestKey, result) -> {
@@ -85,5 +85,10 @@ private  List<TaskModel> list = new ArrayList<>();
             controller.navigate(R.id.detailFragment);
         });
         binding.itemTask.setAdapter(adapter);
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

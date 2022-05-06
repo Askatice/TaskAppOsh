@@ -56,6 +56,7 @@ public class DetailFragment extends Fragment {
     private void initListeners() {
     binding.btnSave.setOnClickListener(view -> {
         sendDateToHomeFragment();
+        closeFragment();
     });
     }
 
@@ -64,7 +65,10 @@ public class DetailFragment extends Fragment {
     Bundle bundle = new Bundle();
     bundle.putString(HOME_KEY1, date);
     bundle.putString(HOME_KEY, text);
-        getActivity().getSupportFragmentManager().setFragmentResult(RESULT_HOME_KEY, bundle);
-        getActivity().getSupportFragmentManager().popBackStack();
+    getParentFragmentManager().setFragmentResult(RESULT_HOME_KEY, bundle);
+    }
+
+    private void closeFragment() {
+        controller.navigateUp();
     }
 }
