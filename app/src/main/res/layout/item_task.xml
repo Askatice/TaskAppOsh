@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTintMode="multiply"
+    android:orientation="vertical"
+    android:id="@+id/container_task">
+
+    <TextView
+        android:id="@+id/task_txt_n"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:text="@string/task_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/task_date"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:text="@string/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

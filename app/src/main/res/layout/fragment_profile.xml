@@ -27,18 +27,18 @@
         android:layout_height="200dp"
         android:layout_margin="30dp"
         android:background="#e5e5e5e5"
-        android:scaleType="fitXY" />
+        android:scaleType="centerCrop" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_image"
-        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_alignEnd="@+id/img_profile"
         android:layout_alignBottom="@id/img_profile"
         android:foreground="@drawable/ic_baseline_add_24"
-        android:textStyle="italic" />
+        android:gravity="center"
+        android:textStyle="italic"
+        android:visibility="visible" />
 
 
 </RelativeLayout>

@@ -65,7 +65,7 @@ public class ProfileFragment extends Fragment {
            Intent intent = new Intent(Intent.ACTION_PICK);
            intent.setType("image/*");
            activityResultLauncher.launch(intent);
-
+            binding.addImage.setVisibility(View.INVISIBLE);
        });
     }
 
@@ -79,10 +79,7 @@ public class ProfileFragment extends Fragment {
                     binding.imgProfile.setImageBitmap(selectedImage);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                    Toast.makeText(requireActivity(), "Something went wrong", Toast.LENGTH_LONG).show();
                 }
-            }else {
-                Toast.makeText(requireActivity(), "You haven't picked Image", Toast.LENGTH_LONG).show();
             }
         });
     }

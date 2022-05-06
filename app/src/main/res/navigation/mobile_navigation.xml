@@ -26,4 +26,9 @@
         android:id="@+id/navigation_profile"
         android:name="com.ssa.taskapp.ui.profile.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.ssa.taskapp.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

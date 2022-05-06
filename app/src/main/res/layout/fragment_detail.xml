@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailFragment">
+    tools:context=".ui.detail.DetailFragment"
+    android:orientation="vertical"
+    android:background="#e5e5e5"
+    android:paddingHorizontal="40dp"
+    android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/task_txt"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="15dp"
+        android:background="@drawable/edt_shape"
+        android:textColorHint="@color/black"
+        android:hint="@string/edit_your_task"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/save_shape"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:text="@string/save_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
