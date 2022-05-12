@@ -10,6 +10,7 @@
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.207" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/drawable/save_shape.xml" value="0.207" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_main.xml" value="0.2361111111111111" />
+        <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_board.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_datail.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_notifications.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_profile.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/item_task.xml" value="0.25" />
+        <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/item_vp.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2361111111111111" />
       </map>
     </option>

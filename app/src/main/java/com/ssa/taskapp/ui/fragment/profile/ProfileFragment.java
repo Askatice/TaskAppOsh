@@ -49,6 +49,7 @@ public class ProfileFragment extends Fragment {
             activityResultLauncher.launch(intent);
             binding.addImage.setVisibility(View.INVISIBLE);
         });
+
     }
 
     public void getImages() {
@@ -66,6 +67,7 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
+
 
     @Override
     public void onDestroyView() {

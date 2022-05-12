@@ -33,4 +33,10 @@
         android:name="com.ssa.taskapp.ui.fragment.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/boardFragment"
+        android:name="com.ssa.taskapp.ui.fragment.board.BoardFragment"
+        android:label="fragment_board"
+        tools:layout="@layout/fragment_board" />
+
 </navigation>
