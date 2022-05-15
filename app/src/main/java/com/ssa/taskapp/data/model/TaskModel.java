@@ -1,4 +1,4 @@
-package com.ssa.taskapp.data.task;
+package com.ssa.taskapp.data.model;
 
 public class TaskModel {
     private final String title, created;

@@ -2,9 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/shape_for_rv"
     android:backgroundTintMode="multiply"
     android:orientation="vertical"
-    android:id="@+id/container_task">
+    android:id="@+id/container_task"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="10dp"
+    android:layout_margin="5dp">
 
     <TextView
         android:id="@+id/task_txt_n"

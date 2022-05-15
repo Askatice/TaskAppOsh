@@ -1,13 +1,14 @@
 package com.ssa.taskapp.ui.fragment.home.adapter;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ssa.taskapp.data.task.TaskModel;
+import com.ssa.taskapp.R;
+import com.ssa.taskapp.data.model.TaskModel;
 import com.ssa.taskapp.databinding.ItemTaskBinding;
 
 import java.util.ArrayList;
@@ -36,9 +37,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.onBind(list.get(position).getTitle(), list.get(position).getCreated());
         if (position % 2 == 1) {
-            holder.binding.containerTask.setBackgroundColor(Color.WHITE);
+            holder.binding.containerTask.setBackground(AppCompatResources.getDrawable(holder.itemView.getContext(), R.drawable.shape_for_rv));
         } else {
-            holder.binding.containerTask.setBackgroundColor(Color.GRAY);
+            holder.binding.containerTask.setBackground(AppCompatResources.getDrawable(holder.itemView.getContext(), R.drawable.shape_for_rv2));
         }
     }
 

@@ -12,8 +12,11 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.ssa.taskapp.App;
 import com.ssa.taskapp.R;
 import com.ssa.taskapp.databinding.ActivityMainBinding;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         initNavController();
         init();
-        openBoard();
+        if(!App.prefs.isShown()){
+            openBoard();
+            App.prefs.isShowed();
+        }
         BottomNav();
     }
 
@@ -35,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void BottomNav() {
         controller.addOnDestinationChangedListener((navController, navDestination, bundle) -> {
-            if (navDestination.getId() == R.id.boardFragment || navDestination.getId() == R.id.detailFragment) {
+            if (navDestination.getId() == R.id.boardFragment || navDestination.getId() ==
+                    R.id.detailFragment) {
                 binding.navView.setVisibility(View.GONE);
-
+                Objects.requireNonNull(getSupportActionBar()).hide();
             } else {
                 binding.navView.setVisibility(View.VISIBLE);
+                Objects.requireNonNull(getSupportActionBar()).show();
             }
         });
     }
@@ -57,13 +65,15 @@ public class MainActivity extends AppCompatActivity {
         controller.navigate(R.id.boardFragment);
     }
     private void initNavController() {
-        NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_main);
+        NavHostFragment host = (NavHostFragment) getSupportFragmentManager().
+                findFragmentById(R.id.nav_host_fragment_activity_main);
         assert host != null;
         NavController navController = host.getNavController();
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupActionBarWithNavController(this, navController,
+                appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 

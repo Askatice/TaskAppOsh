@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -15,7 +14,7 @@ import com.ssa.taskapp.R;
 import com.ssa.taskapp.databinding.FragmentHomeBinding;
 import com.ssa.taskapp.ui.fragment.detail.DetailFragment;
 import com.ssa.taskapp.ui.fragment.home.adapter.TaskAdapter;
-import com.ssa.taskapp.data.task.TaskModel;
+import com.ssa.taskapp.data.model.TaskModel;
 
 
 public class HomeFragment extends Fragment {
@@ -38,7 +37,6 @@ public class HomeFragment extends Fragment {
         initNavController();
         initListener();
         initResultListener();
-        actionBar();
     }
 
     private void initAdapter() {
@@ -56,11 +54,9 @@ public class HomeFragment extends Fragment {
                     adapter.addList(new TaskModel(text,date));
                 })
         );
+    }
 
-    }
-    private void actionBar() {
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-    }
+
 
     private void initNavController() {
         NavHostFragment navHostController = (NavHostFragment)
