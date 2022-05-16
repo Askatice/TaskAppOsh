@@ -11,4 +11,9 @@
     <string name="save_text">Save Text</string>
     <string name="task_txt">Test Label No. 0</string>
     <string name="date">May 19</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="write_your_name">Write your name</string>
+    <string name="write_your_name1">Write your name</string>
+    <string name="save">Save</string>
 </resources>
