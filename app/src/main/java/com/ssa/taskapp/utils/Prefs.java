@@ -31,7 +31,7 @@ public class Prefs {
     }
 
     public String firstName() {
-        return preferences.getString("first", "");
+        return preferences.getString("first", "First name");
 
     }
 

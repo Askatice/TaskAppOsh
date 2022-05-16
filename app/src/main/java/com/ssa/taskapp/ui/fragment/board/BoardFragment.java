@@ -88,10 +88,10 @@ public class BoardFragment extends Fragment {
                     binding.txtFinish.animate().alpha(0).setDuration(1000).start();
                     binding.txtFinish.setEnabled(false);
                 }
-
             }
         });
     }
+    
     private void initAdapter() {
         BoardAdapter adapter = new BoardAdapter();
         binding.vpBoard.setAdapter(adapter);

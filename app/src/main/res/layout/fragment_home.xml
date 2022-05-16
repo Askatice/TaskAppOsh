@@ -9,6 +9,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_task_btn"
         android:layout_width="wrap_content"
+        android:backgroundTint="@color/white"
         android:layout_height="wrap_content"
         android:foreground="@drawable/ic_baseline_add_24"
         android:gravity="center"

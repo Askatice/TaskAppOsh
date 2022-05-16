@@ -38,7 +38,6 @@
             app:tabGravity="center"
             app:tabPaddingStart="1dp"
             app:tabPaddingEnd="0dp"
-
             app:tabIndicatorHeight="0dp" />
 
 

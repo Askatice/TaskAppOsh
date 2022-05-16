@@ -92,13 +92,6 @@ public class ProfileFragment extends Fragment {
     private void initText() {
         binding.txtName.setText(Prefs.getPrefs().firstName());
         binding.txtLastName.setText(Prefs.getPrefs().lastName());
-        if(!binding.txtName.getText().toString().isEmpty() ||
-                !binding.edtLastName.getText().toString().isEmpty()){
-            binding.edtName.setVisibility(View.INVISIBLE);
-            binding.edtLastName.setVisibility(View.INVISIBLE);
-            binding.btnTxtSave.setVisibility(View.INVISIBLE);
-            binding.addImage.setVisibility(View.INVISIBLE);
-        }
     }
 
     private void initBtn() {
@@ -112,7 +105,8 @@ public class ProfileFragment extends Fragment {
     private void saveData() {
         String firstName = binding.edtName.getText().toString();
         String lastName = binding.edtLastName.getText().toString();
-        if (!firstName.equals("")) {
+        if (!firstName.trim().isEmpty()) {
+
             Prefs.getPrefs().saveFirstName(firstName);
         }
         if (!lastName.equals("")) {
