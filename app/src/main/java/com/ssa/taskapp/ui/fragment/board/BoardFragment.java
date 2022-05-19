@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -56,12 +55,8 @@ public class BoardFragment extends Fragment {
     }
 
     private void initClick() {
-        binding.txtFinish.setOnClickListener(v -> {
-           controller.navigate(R.id.navigation_home);
-        });
-        binding.txtSkip.setOnClickListener(v -> {
-            binding.vpBoard.setCurrentItem(3);
-        });
+        binding.txtFinish.setOnClickListener(v -> controller.navigate(R.id.navigation_home));
+        binding.txtSkip.setOnClickListener(v -> binding.vpBoard.setCurrentItem(3));
     }
 
     private void initNavController() {
