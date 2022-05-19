@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 
 public class Prefs {
-
     public final static String BOARD_KEY = "boardKey";
     private SharedPreferences preferences;
     public static Prefs prefs;

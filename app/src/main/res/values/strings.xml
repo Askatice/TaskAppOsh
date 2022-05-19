@@ -16,4 +16,6 @@
     <string name="write_your_name">Write your name</string>
     <string name="write_your_name1">Write your name</string>
     <string name="save">Save</string>
+    <string name="sort_alphabetically">Sort Alphabetically</string>
+    <string name="sort_by_date">Sort by date</string>
 </resources>

@@ -22,7 +22,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     };
     private final String[] title = {
             "Добро пожаловать!",
-            "Прилоэение",
+            "Приложение",
             "Преумущество ",
             "Хорошего использование"
     };
@@ -33,7 +33,6 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
                     "не придется взять собой дневник",
             "Хорошего использование"
     };
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,18 +40,14 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
                 parent,
                 false));
     }
-
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.onBind(img[position], title[position], desc[position]);
     }
-
     @Override
     public int getItemCount() {
         return img.length;
     }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView title, description;
         private final ImageView image;
@@ -62,9 +57,6 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
             description = view.findViewById(R.id.vp_description);
             image = view.findViewById(R.id.vp_image);
         }
-
-
-
         public void onBind(int img, String title, String desc) {
             this.title.setText(title);
             this.description.setText(desc);
