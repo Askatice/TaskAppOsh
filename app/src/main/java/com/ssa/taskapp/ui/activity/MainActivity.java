@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private void BottomNav() {
         controller.addOnDestinationChangedListener((navController,
                                                     navDestination, bundle) -> {
-            if (navDestination.getId() == R.id.boardFragment && navDestination.getId() ==
+            if (navDestination.getId() == R.id.boardFragment || navDestination.getId() ==
                     R.id.detailFragment) {
                 binding.navView.setVisibility(View.GONE);
                 Objects.requireNonNull(getSupportActionBar()).hide();
