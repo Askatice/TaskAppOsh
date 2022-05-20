@@ -20,6 +20,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     private List<TaskModel> list = new ArrayList<>();
     Click click;
+    private int pos;
 
     public TaskAdapter(Click click) {
         this.click = click;
@@ -28,8 +29,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void addList(List<TaskModel> list){
         this.list.clear();
         this.list.addAll(list);
-        notifyDataSetChanged();
+        notifyItemChanged(list.size());
     }
+
 
     public void sortA(){
         list = App.dateBase.taskDao().sortWithAlphabetAllTasks();
@@ -61,7 +63,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             holder.binding.containerTask.setBackground(AppCompatResources.
                     getDrawable(holder.itemView.getContext(), R.drawable.shape_for_rv2));
         }
-        holder.binding.taskTxtN.setOnClickListener(v -> click.
+        holder.binding.containerTask.setOnClickListener(v -> click.
                 click(list.get(holder.getAdapterPosition())));
         holder.binding.containerTask.setLongClickable(true);
         holder.binding.containerTask.setOnLongClickListener(v -> {

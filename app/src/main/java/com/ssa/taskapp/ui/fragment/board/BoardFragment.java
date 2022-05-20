@@ -30,8 +30,6 @@ public class BoardFragment extends Fragment {
         return binding.getRoot();
     }
 
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -66,7 +64,6 @@ public class BoardFragment extends Fragment {
         assert navHostController != null;
         controller = navHostController.getNavController();
     }
-
     private void initListener() {
         binding.vpBoard.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -86,7 +83,6 @@ public class BoardFragment extends Fragment {
             }
         });
     }
-    
     private void initAdapter() {
         BoardAdapter adapter = new BoardAdapter();
         binding.vpBoard.setAdapter(adapter);

@@ -23,6 +23,8 @@
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable-v24/shape_for_rv2.xml" value="0.236" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/edt_shape.xml" value="0.236" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1125" />
+        <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/save_shape.xml" value="0.3605" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/shape_for_button.xml" value="0.1985" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/shape_for_rv.xml" value="0.236" />
@@ -42,6 +44,7 @@
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/menu/bottom_action_menu.xml" value="0.33055555555555555" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3261538461538461" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/menu/menu.xml" value="0.3296296296296296" />
+        <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>
