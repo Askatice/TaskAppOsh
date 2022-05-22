@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.auth.AuthFragment"
+    android:padding="20dp"
+    android:layout_centerHorizontal="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/img_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="48dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/task_txt"
+                android:src="@mipmap/ic_launcher" />
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/img_app"
+            android:id="@+id/email_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:hint="@string/write_your_email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/email_et"
+            android:id="@+id/pass_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="password"
+            android:hint="@string/write_your_password"
+            android:inputType="textPassword"
+            android:textColor="@color/black" />
+        <ImageView
+            android:id="@+id/slash_eyes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/pass_et"
+            android:layout_alignEnd="@+id/pass_et"
+            android:layout_alignBottom="@+id/pass_et"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_icon_eye"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/withSlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/pass_et"
+            android:layout_alignEnd="@+id/pass_et"
+            android:layout_alignBottom="@+id/pass_et"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_icon_eye2"
+            android:visibility="invisible" />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/pass_et"
+            android:id="@+id/enter_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_for_rv2"
+            android:text="@string/enter_register"
+            android:textColor="@color/white" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/enter_reg"
+        android:layout_centerHorizontal="true"
+        android:text="@string/forgot_your_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>

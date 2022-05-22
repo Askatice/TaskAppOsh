@@ -38,5 +38,10 @@
         android:name="com.ssa.taskapp.ui.fragment.board.BoardFragment"
         android:label="fragment_board"
         tools:layout="@layout/fragment_board" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.ssa.taskapp.ui.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
 
 </navigation>

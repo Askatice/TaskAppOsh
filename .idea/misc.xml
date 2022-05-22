@@ -20,6 +20,7 @@
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/item_task.xml" value="0.25" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/layout/item_vp.xml" value="0.2361111111111111" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2361111111111111" />
+        <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable-v24/ic_icon_eye.xml" value="0.132" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable-v24/shape_for_rv2.xml" value="0.236" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/edt_shape.xml" value="0.236" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1125" />
@@ -32,6 +33,7 @@
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/tab_indicator_selected.xml" value="0.236" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/drawable/tab_selector.xml" value="0.236" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/layout/fragment_auth.xml" value="0.25" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/layout/fragment_board.xml" value="0.25" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Askat/AndroidStudioProjects/TaskAppOsh/app/src/main/res/layout/fragment_detail.xml" value="0.25416666666666665" />

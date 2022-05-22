@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         initNavController();
         init();
+        openAuth();
         if(!App.prefs.isShown()){
             openBoard();
             App.prefs.isShowed();
@@ -37,11 +38,15 @@ public class MainActivity extends AppCompatActivity {
         BottomNav();
     }
 
+    private void openAuth() {
+        controller.navigate(R.id.authFragment);
+    }
+
     private void BottomNav() {
         controller.addOnDestinationChangedListener((navController,
                                                     navDestination, bundle) -> {
             if (navDestination.getId() == R.id.boardFragment || navDestination.getId() ==
-                    R.id.detailFragment) {
+                    R.id.detailFragment || navDestination.getId() == R.id.authFragment) {
                 binding.navView.setVisibility(View.GONE);
                 Objects.requireNonNull(getSupportActionBar()).hide();
             } else {
