@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "768837214512",
+    "project_id": "taskapposh",
+    "storage_bucket": "taskapposh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768837214512:android:34b22114b0b17baa0d68f5",
+        "android_client_info": {
+          "package_name": "com.ssa.taskapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768837214512-22633cfgtd341hum5ahvrrmlofp1gf5q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5P6yC0WnMpWVSz38mQsfRkSoSOc4ru4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768837214512-22633cfgtd341hum5ahvrrmlofp1gf5q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

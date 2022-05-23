@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private NavController controller;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +31,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         initNavController();
         init();
-        openBoard();
-        openAuth();
+        if(!App.prefs.isShown()){
+            openBoard();
+            App.prefs.isShowed();
+        } else if (App.user == null) {
+            openAuth();
+        }
         BottomNav();
     }
+
     private void openAuth() {
-        if (App.user == null) {
-            controller.navigate(R.id.authFragment);
-        }
+        controller.navigate(R.id.authFragment);
     }
 
     private void BottomNav() {
@@ -67,12 +69,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openBoard() {
-        if(!App.prefs.isShown()) {
-            controller.navigate(R.id.boardFragment);
-            App.prefs.isShowed();
-        }
+        controller.navigate(R.id.boardFragment);
     }
-
     private void initNavController() {
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager().
                 findFragmentById(R.id.nav_host_fragment_activity_main);

@@ -91,7 +91,6 @@ public class AuthFragment extends Fragment {
         });
         binding.btnGoogle.setOnClickListener(v -> {
             signIn();
-            controller.navigate(R.id.navigation_home);
         });
 
         binding.loginButton.setReadPermissions(Collections.singletonList(email));
@@ -220,6 +219,7 @@ public class AuthFragment extends Fragment {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        controller.navigate(R.id.navigation_home);
     }
 
 }
