@@ -1,5 +1,6 @@
 package com.ssa.taskapp.ui.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,22 +13,51 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.GoogleAuthProvider;
+import com.ssa.taskapp.App;
 import com.ssa.taskapp.R;
 import com.ssa.taskapp.databinding.FragmentAuthBinding;
+
+import java.util.Collections;
 
 public class AuthFragment extends Fragment {
 
     private FragmentAuthBinding binding;
     private NavController controller;
+    private String email;
+    private String password;
+    private CallbackManager callbackManager;
+    private static final int RC_SIGN_IN = 9001;
+    private GoogleSignInClient mGoogleSignInClient;
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAuthBinding.inflate(inflater);
+        callbackManager = CallbackManager.Factory.create();
         initController();
-        return binding.getRoot();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
 
+        mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso);
+        return binding.getRoot();
     }
 
     private void initController() {
@@ -41,8 +71,100 @@ public class AuthFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initListeners();
         Eyes();
     }
+
+
+
+    private void initListeners() {
+        binding.enterReg.setOnClickListener(v -> {
+            email = binding.emailEt.getText().toString().trim();
+            password = binding.passEt.getText().toString().trim();
+            EnterEmail();
+        });
+        binding.enterReg.setOnLongClickListener(v -> {
+            email = binding.emailEt.getText().toString().trim();
+            password = binding.passEt.getText().toString().trim();
+            registerEmail();
+            return true;
+        });
+        binding.btnGoogle.setOnClickListener(v -> {
+            signIn();
+            controller.navigate(R.id.navigation_home);
+        });
+
+        binding.loginButton.setReadPermissions(Collections.singletonList(email));
+        binding.loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Toast.makeText(requireContext(), "User:" +
+                                email + "\n successfully created"
+                        , Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(requireContext(),"          User died" +
+                                "\n Long press to register",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Toast.makeText(requireContext(), "User:" +
+                                email + "\n successfully created"
+                        , Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(requireContext(),"          User died" +
+                                "\n Long press to register",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void EnterEmail() {
+        App.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                Toast.makeText(requireContext(), "User:" +
+                                email + "\n successfully created"
+                        , Toast.LENGTH_SHORT).show();
+                controller.navigate(R.id.navigation_home);
+            }else {
+                Toast.makeText(requireContext(),"          User died" +
+                                "\n Long press to register",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void registerEmail() {
+        App.auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                Toast.makeText(requireContext(), "User:" +
+                                email + "\n successfully logged in"
+                        , Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(requireContext(), "User died" ,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void Eyes() {
         binding.withSlack.setEnabled(false);
         binding.withSlack.setOnClickListener(view -> {
@@ -62,4 +184,42 @@ public class AuthFragment extends Fragment {
                     InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
         });
     }
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+       App.auth.signInWithCredential(credential)
+                .addOnCompleteListener(requireActivity(), task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Toast.makeText(requireContext(), "User:" +
+                                        email + "\n successfully with Google logged in"
+                                , Toast.LENGTH_SHORT).show();
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(requireContext(), "User died" ,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account.getIdToken());
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+            }
+        }
+    }
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
 }

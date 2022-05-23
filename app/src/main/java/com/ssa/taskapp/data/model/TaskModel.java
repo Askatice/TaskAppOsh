@@ -1,6 +1,7 @@
 package com.ssa.taskapp.data.model;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -10,10 +11,7 @@ public class TaskModel {
     private int id;
     private String title, created;
 
-    public TaskModel(){
-    }
-
-
+    @Ignore
     public TaskModel(String title, String created) {
         this.title = title;
         this.created = created;

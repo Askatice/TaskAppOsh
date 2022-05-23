@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.ssa.taskapp.App;
 import com.ssa.taskapp.R;
 import com.ssa.taskapp.databinding.ActivityMainBinding;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private NavController controller;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +32,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         initNavController();
         init();
+        openBoard();
         openAuth();
-        if(!App.prefs.isShown()){
-            openBoard();
-            App.prefs.isShowed();
-        }
         BottomNav();
     }
-
     private void openAuth() {
-        controller.navigate(R.id.authFragment);
+        if (App.user == null) {
+            controller.navigate(R.id.authFragment);
+        }
     }
 
     private void BottomNav() {
@@ -67,8 +67,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openBoard() {
-        controller.navigate(R.id.boardFragment);
+        if(!App.prefs.isShown()) {
+            controller.navigate(R.id.boardFragment);
+            App.prefs.isShowed();
+        }
     }
+
     private void initNavController() {
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager().
                 findFragmentById(R.id.nav_host_fragment_activity_main);

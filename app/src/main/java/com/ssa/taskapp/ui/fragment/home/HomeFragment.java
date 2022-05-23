@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.ssa.taskapp.App;
 import com.ssa.taskapp.R;
 import com.ssa.taskapp.databinding.FragmentHomeBinding;
@@ -53,16 +54,25 @@ public class HomeFragment extends Fragment implements Click {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         menu.add(0,1,0,"Sort Alphabetically");
         menu.add(0,2,1,"sort by date");
+        menu.add(0,3,2,"Sign out");
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == 1){
-           adapter.sortA();
-        }else {
-            adapter.sortD();
+        switch (item.getItemId()){
+            case (1):
+                adapter.sortA();
+                break;
+            case (2):
+                    adapter.sortD();
+                    break;
+            case (3):
+                App.user.delete();
+                break;
+            default:
         }
+
         return super.onOptionsItemSelected(item);
     }
 
